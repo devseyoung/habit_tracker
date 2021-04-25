@@ -1,6 +1,5 @@
 /* eslint-disable no-unreachable */
 import React, { Component } from 'react';
-
 class Habit extends Component {
   state = {
     count: 0,
@@ -12,14 +11,16 @@ class Habit extends Component {
   handleDecreament = () => {
     // state 오브젝트 안에 있는 count를 증가 한 뒤 state를 업데이트 해야함.
     const count = this.state.count - 1;
-    // 0 보다 작으면 0 출력하고 아니면 count 출력해 !!
+    // 0 보다 작으면 0 출력하고 아니면 count 출력해!!
     this.setState({ count: count < 0 ? 0 : count });
   }
   render() {
+    console.log(this.props.habit);
+    const {name, count} = this.props.habit;
     return (
     <li className="habit">
-      <span className="habit-name">Reading</span>
-      <span className="habit-count">{this.state.count}</span>
+      <span className="habit-name">{name}</span>
+      <span className="habit-count">{count}</span>
       <button className="habit-button habit-increase" onClick={this.handleIncreament}>
         <i className="fas fa-plus-square"></i>
       </button>
