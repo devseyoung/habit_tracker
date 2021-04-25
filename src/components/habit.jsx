@@ -1,19 +1,17 @@
 /* eslint-disable no-unreachable */
 import React, { Component } from 'react';
 class Habit extends Component {
-  state = {
-    count: 0,
+  
+  handleIncrement = () => {
+    this.props.onIncrement(this.props.habit);
   };
-  handleIncreament = () => {
-    // state 오브젝트 안에 있는 count를 증가 한 뒤 state를 업데이트 해야함.
-    this.setState({ count: this.state.count + 1 });
-  }
-  handleDecreament = () => {
-    // state 오브젝트 안에 있는 count를 증가 한 뒤 state를 업데이트 해야함.
-    const count = this.state.count - 1;
-    // 0 보다 작으면 0 출력하고 아니면 count 출력해!!
-    this.setState({ count: count < 0 ? 0 : count });
-  }
+  handleDecrement = () => {
+    this.props.onDecrement(this.props.habit);
+  };
+  handleDelete = () => {
+    this.props.onDelete(this.props.habit);
+  };
+
   render() {
     console.log(this.props.habit);
     const {name, count} = this.props.habit;
@@ -21,13 +19,13 @@ class Habit extends Component {
     <li className="habit">
       <span className="habit-name">{name}</span>
       <span className="habit-count">{count}</span>
-      <button className="habit-button habit-increase" onClick={this.handleIncreament}>
+      <button className="habit-button habit-increase" onClick={this.handleIncrement}>
         <i className="fas fa-plus-square"></i>
       </button>
-      <button className="habit-button habit-decrease" onClick={this.handleDecreament}>
+      <button className="habit-button habit-decrease" onClick={this.handleDecrement}>
         <i className="fas fa-minus-square"></i>
       </button>
-      <button className="habit-button habit-delete">
+      <button className="habit-button habit-delete" onClick={this.handleDelete}>
         <i className="fas fa-trash"></i>
       </button>
     </li>
