@@ -5,7 +5,7 @@ class Habit extends Component {
   handleIncrement = () => {
     this.props.onIncrement(this.props.habit);
   };
-  handleDecrement = () => {
+  handleDecreament = () => {
     this.props.onDecrement(this.props.habit);
   };
   handleDelete = () => {
@@ -22,7 +22,7 @@ class Habit extends Component {
       <button className="habit-button habit-increase" onClick={this.handleIncrement}>
         <i className="fas fa-plus-square"></i>
       </button>
-      <button className="habit-button habit-decrease" onClick={this.handleDecrement}>
+      <button className="habit-button habit-decrease" onClick={this.handleDecreament}>
         <i className="fas fa-minus-square"></i>
       </button>
       <button className="habit-button habit-delete" onClick={this.handleDelete}>
