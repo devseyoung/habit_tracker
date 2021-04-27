@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
-import React, { Component } from 'react';
-class Habit extends Component {
+import React, { PureComponent } from 'react';
+class Habit extends PureComponent {
   
   handleIncrement = () => {
     this.props.onIncrement(this.props.habit);
